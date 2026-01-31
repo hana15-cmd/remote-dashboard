@@ -9,10 +9,9 @@ export default defineConfig({
       name: "remote_app",
       filename: "remoteEntry.js",
       exposes: {
-        "./Button": "./src/components/Button",
-        "./Header": "./src/components/Header",
+         "./App": "./src/App",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom","react-router-dom"],
     }),
   ],
   build: {
