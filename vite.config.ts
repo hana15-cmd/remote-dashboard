@@ -1,17 +1,29 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import federation from "@originjs/vite-plugin-federation";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [
+    tailwindcss(),
     react(),
     federation({
       name: "remote_app",
       filename: "remoteEntry.js",
       exposes: {
-         "./App": "./src/App",
+        "./App": "./src/App.tsx",
       },
-      shared: ["react", "react-dom","react-router-dom"],
+      shared: {
+        react: {
+          requiredVersion: "^19.2.0",
+        },
+        "react-dom": {
+          requiredVersion: "^19.2.0",
+        },
+        "react-router-dom": {
+          requiredVersion: "^7.0.0",
+        },
+      },
     }),
   ],
   build: {
@@ -21,6 +33,11 @@ export default defineConfig({
     cssCodeSplit: false,
   },
   preview: {
+    port: 5001,
+    strictPort: true,
+    cors: true,
+  },
+  server: {
     port: 5001,
     strictPort: true,
     cors: true,
