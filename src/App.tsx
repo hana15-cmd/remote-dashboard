@@ -1,3 +1,4 @@
+import "./index.css";
 import KeyMetrics from "./components/KeyMetricts";
 import ProductDistribution from "./components/ProductDistribution";
 import RecentActivity from "./components/RecentActivity";
