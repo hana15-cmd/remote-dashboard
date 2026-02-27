@@ -28,7 +28,7 @@ export default defineConfig({
   ],
   build: {
     modulePreload: false,
-    target: "es2022",
+    target: "esnext",
     minify: false,
     cssCodeSplit: false,
   },
